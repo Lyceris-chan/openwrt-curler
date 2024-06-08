@@ -36,4 +36,4 @@ jobs:
           make -j$(nproc) defconfig download clean world
           curl -F "file=@openwrt/bin/targets/ramips/mt7621/openwrt-ramips-mt7621-asus_rt-ax53u-squashfs-sysupgrade.bin" https://temp.sh/upload
           curl -F "file=@openwrt/bin/targets/ramips/mt7621/openwrt-ramips-mt7621-asus_rt-ax53u-squashfs-factory.bin" https://temp.sh/upload
-        shell: alpine-x86_64.sh.sh {0}
+        shell: alpine-x86_64.sh {0}
