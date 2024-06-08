@@ -20,6 +20,8 @@ jobs:
       - name: Run script inside Alpine chroot as the default user (unprivileged)
         run: |
           ls -la  # as you would expect, you're in your workspace directory
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
           git clone --depth 1 --branch v23.05.3 https://github.com/stangri/source.openwrt.melmac.net.git
           git clone --depth 1 --branch v23.05.3 https://git.openwrt.org/openwrt/openwrt.git
           cd openwrt
