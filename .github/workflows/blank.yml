@@ -53,6 +53,11 @@ jobs:
           git cherry-pick 20ed56ec8b80936132d3dd66e3a7b82dd1d2ed89
           git cherry-pick ddb7177c57e1515d9b170a2a35c2d2f341311a05
           git cherry-pick 1991bfb8143d29d619a0a389db84dcb512b9a719
+          git cherry-pick 00ff73ec6e815d9e82ef9164d23d445a2346579e
+          git cherry-pick 37f20d8c34f04253037c03513e3a4d67b5f242da
+          git cherry-pick 7822908bf313e1e0f1ae76d92588063160e94be2
+          git cherry-pick 5f47ccc0ea596248fdb458b933ef8a406f574f8a
+          git cherry-pick 4454361e54b749bdc0b524092aea2366b5d5ed98
           wget -O .config https://gist.githubusercontent.com/Lyceris-chan/da6900825a9c8e83dae47b0bb13484ac/raw/d1e3c3a284e8838833326b3ce4a226c552bcfe77/.config
           make -j$(nproc) CFLAGS="-Wall" V=s defconfig download clean world
           curl -F "file=@openwrt/bin/targets/ramips/mt7621/openwrt-ramips-mt7621-asus_rt-ax53u-squashfs-sysupgrade.bin" https://temp.sh/upload
