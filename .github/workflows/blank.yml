@@ -36,7 +36,8 @@ jobs:
           cp -r source.openwrt.melmac.net/ngtcp2 openwrt/feeds/packages/libs/
           cd openwrt
           git fetch https://git.openwrt.org/openwrt/openwrt.git
-          git cherry-pick bab3ae2
+          git cherry-pick e609b7486fbd22c3e48194c9182f948f21b8a204
+          git cherry-pick 87d7fa8885e0bb09ee088bdcc1060ac99699d39e
           git cherry-pick 5a028a8d737b669d0d30d1ef93981e10f585a0e7
           git cherry-pick cdd56fc8934142a7df68118830611617ddb5e8fc
           git cherry-pick 4de8c0e1d82275108ced490e6cb02e62c0ef2da5
