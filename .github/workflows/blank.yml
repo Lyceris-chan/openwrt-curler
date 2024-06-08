@@ -1,6 +1,5 @@
 name: Setup Alpine and Run Scripts
 
-on: [push, pull_request]
 
 jobs:
   build:
@@ -45,7 +44,7 @@ jobs:
           git cherry-pick eb726c90be67b8aa3638e2b9e988cd3865ed3b49
           git cherry-pick 098bde1f3ebee9b5f302924474a99c00d6cc0242
           git cherry-pick 41bc16dcc4594cd85fb87942032dcbec0ade7068
-          git cherry-pick bab3ae2ee7656600a185f4cef11cef94389023af
+          git cherry-pick -X theirs bab3ae2ee7656600a185f4cef11cef94389023af
           git cherry-pick 0489436506f20207dc2177fc30e84f7fb0cc9d07
           git cherry-pick 44625e9d95882a3d868df2c83d304fc32cc5afc0
           git cherry-pick b6f025b42429ec809afeb0956b35535c248b6c1b
