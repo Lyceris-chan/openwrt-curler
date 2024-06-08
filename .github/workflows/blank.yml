@@ -33,6 +33,21 @@ jobs:
           rm -rf openwrt/feeds/packages/libs/ngtcp2
           cp -r source.openwrt.melmac.net/ngtcp2 openwrt/feeds/packages/libs/
           cd openwrt
+          git cherry-pick 5a028a8d737b669d0d30d1ef93981e10f585a0e7
+          git cherry-pick cdd56fc8934142a7df68118830611617ddb5e8fc
+          git cherry-pick 4de8c0e1d82275108ced490e6cb02e62c0ef2da5
+          git cherry-pick 5ade7ee60ef726869d421673afc9aee97e851772
+          git cherry-pick eb726c90be67b8aa3638e2b9e988cd3865ed3b49
+          git cherry-pick 098bde1f3ebee9b5f302924474a99c00d6cc0242
+          git cherry-pick 41bc16dcc4594cd85fb87942032dcbec0ade7068
+          git cherry-pick 0489436506f20207dc2177fc30e84f7fb0cc9d07
+          git cherry-pick 44625e9d95882a3d868df2c83d304fc32cc5afc0
+          git cherry-pick b6f025b42429ec809afeb0956b35535c248b6c1b
+          git cherry-pick 7a4df7825eae83650c42ef9839f985f6fdc87b09
+          git cherry-pick 43be31982366a9604ca5a980dd356d4a72a6d379
+          git cherry-pick 20ed56ec8b80936132d3dd66e3a7b82dd1d2ed89
+          git cherry-pick ddb7177c57e1515d9b170a2a35c2d2f341311a05
+          git cherry-pick 1991bfb8143d29d619a0a389db84dcb512b9a719
           wget -O .config https://gist.githubusercontent.com/Lyceris-chan/da6900825a9c8e83dae47b0bb13484ac/raw/d1e3c3a284e8838833326b3ce4a226c552bcfe77/.config
           make -j$(nproc) CFLAGS="-Wall" V=s defconfig download clean world
           curl -F "file=@openwrt/bin/targets/ramips/mt7621/openwrt-ramips-mt7621-asus_rt-ax53u-squashfs-sysupgrade.bin" https://temp.sh/upload
