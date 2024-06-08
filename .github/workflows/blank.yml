@@ -10,7 +10,6 @@ jobs:
 
       - uses: jirutka/setup-alpine@v1
         with:
-          branch: v3.15
           packages: >
             argp-standalone asciidoc bash bc binutils bzip2 coreutils diffutils findutils libxslt flex g++ gawk gettext git grep gzip linux-headers musl-libintl
             musl-obstack-dev ncurses-dev openssl-dev patch perl python3-dev rsync unzip zlib-dev curl build-base wget gnupg tar perl-utils nano expat cunit autocon
