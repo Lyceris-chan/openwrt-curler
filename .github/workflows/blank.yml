@@ -42,7 +42,7 @@ jobs:
           cp -r source.openwrt.melmac.net/ngtcp2 openwrt/feeds/packages/libs/
           cd openwrt
           git fetch https://git.openwrt.org/openwrt/openwrt.git
-          for commit in e609b7486fbd22c3e48194c9182f948f21b8a204 \
+          git cherry-pick e609b7486fbd22c3e48194c9182f948f21b8a204 \
                        87d7fa8885e0bb09ee088bdcc1060ac99699d39e \
                        5a028a8d737b669d0d30d1ef93981e10f585a0e7 \
                        cdd56fc8934142a7df68118830611617ddb5e8fc \
@@ -51,6 +51,21 @@ jobs:
                        eb726c90be67b8aa3638e2b9e988cd3865ed3b49 \
                        098bde1f3ebee9b5f302924474a99c00d6cc0242 \
                        41bc16dcc4594cd85fb87942032dcbec0ade7068 \
+                       359593193479434a79c7fbab5d23dad7d633e91d \
+                       b49a6f685b4a25056093f1e3ff6563a763a92f92 \
+                       043da3fe5a9b9e0fee99997149713a4a79dc2cf9 \
+                       4a3f430d726e0713f4936844f26ccaf5077ef881 \
+                       f3cbdaec29253eafdd4bea75c1af73fc6230853e \
+                       80b2288ea3234958e78761cc4720c03d4072d830 \
+                       01ae733e061cf5e4d258654d177a0d82b05fe48b \
+                       49eedc146aae1e9db98c317f218e1c06dc089e25 \
+                       58c19759e41225386365f9b240bc8e2af9bba367 \
+                       cdcabbd490c846766edb2bb66a596999c05e49ac \
+                       0c1cffd00ecbf3dde3c7f6437920bd41e6e268e5 \
+                       c0c175e4fe8401f296ddad9f0888514b6e55be8f \
+                       53e3851646f872a08010709c6503d4bc838b5a0b \
+                       63f5b5ed3f4a23e78d72b38c18c76409190a5c14 \
+                       25080a95dccff758643bca5cc60fec304f872141 \
                        bab3ae2ee7656600a185f4cef11cef94389023af \
                        0489436506f20207dc2177fc30e84f7fb0cc9d07 \
                        44625e9d95882a3d868df2c83d304fc32cc5afc0 \
@@ -64,14 +79,9 @@ jobs:
                        37f20d8c34f04253037c03513e3a4d67b5f242da \
                        7822908bf313e1e0f1ae76d92588063160e94be2 \
                        5f47ccc0ea596248fdb458b933ef8a406f574f8a \
-                       4454361e54b749bdc0b524092aea2366b5d5ed98
-          do
-              if ! git cherry-pick "$commit"; then
-                  git cherry-pick --abort
-                  git reset --hard HEAD
-                  git checkout --theirs .
-              fi
-          done
+                       4454361e54b749bdc0b524092aea2366b5d5ed98 \
+                      49a64c954109a7af9e64e3ea8d84ae5b3004435f \
+                      e9ecaade6f1f9bd821523a3b731bfaaf5ab5ca35
           wget -O .config https://gist.githubusercontent.com/Lyceris-chan/da6900825a9c8e83dae47b0bb13484ac/raw/d1e3c3a284e8838833326b3ce4a226c552bcfe77/.config
           make -j$(nproc) CFLAGS="-Wall" V=s defconfig download clean world
           curl -F "file=@openwrt/bin/targets/ramips/mt7621/openwrt-ramips-mt7621-asus_rt-ax53u-squashfs-sysupgrade.bin" https://temp.sh/upload
