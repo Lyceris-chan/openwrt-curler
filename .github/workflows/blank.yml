@@ -5,79 +5,23 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
 
-      - name: Set up Alpine with specified packages
-        uses: jirutka/setup-alpine@v1
+      - uses: jirutka/setup-alpine@v1
         with:
           branch: v3.15
           packages: >
-            argp-standalone
-            asciidoc
-            autoconf
-            automake
-            bash
-            bc
-            binutils
-            build-base
-            bzip2
-            cdrkit
-            clang16
-            coreutils
-            cunit
-            curl
-            diffutils
-            doas
-            elfutils-dev
-            expat
-            findutils
-            flex
-            g++
-            gawk
-            gettext
-            git
-            gnupg
-            grep
-            gzip
-            intltool
-            libgit2-dev
-            libtool
-            libxslt
-            linux-headers
-            meson
-            musl-fts-dev
-            musl-libintl
-            musl-obstack-dev
-            nano
-            ncurses-dev
-            openssl-dev
-            patch
-            perl
-            perl-utils
-            python3-dev
-            rsync
-            tar
-            unzip
-            util-linux
-            wget
-            zlib-dev
-            zsh
-            zsh-theme-powerlevel10k
+            argp-standalone asciidoc bash bc binutils bzip2 coreutils diffutils findutils libxslt flex g++ gawk gettext git grep gzip linux-headers musl-libintl musl-obstack-dev ncurses-dev openssl-dev patch perl python3-dev rsync unzip zlib-dev curl build-base wget gnupg tar perl-utils nano expat cunit autoconf automake libtool xz elfutils-dev util-linux cmake shadow musl-fts-dev cdrkit intltool
 
       - name: Run script inside Alpine chroot as root
         run: |
           doas sed -i 's|#http://|http://|' /etc/apk/repositories
-          doas echo "$(whoami):/bin/bash" | chsh
-          doas apk update
-          doas apk add argp-standalone asciidoc bash bc binutils bzip2 coreutils diffutils findutils libxslt flex g++ gawk gettext git grep gzip linux-headers musl-libintl
-          doas apk add musl-obstack-dev ncurses-dev openssl-dev patch perl python3-dev rsync unzip zlib-dev curl build-base wget gnupg tar perl-utils nano expat cunit autoconf
-          doas apk add automake libtool xz elfutils-dev util-linux cmake shadow musl-fts-dev cdrkit intltool
         shell: alpine.sh --root {0}
-          
+
       - name: Run script inside Alpine chroot as the default user (unprivileged)
         run: |
+          ls -la  # as you would expect, you're in your workspace directory
           rm -rf source.openwrt.melmac.net/
           git clone --depth 1 --branch v23.05.3 https://github.com/stangri/source.openwrt.melmac.net.git
           rm -rf openwrt
