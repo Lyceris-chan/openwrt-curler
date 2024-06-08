@@ -8,8 +8,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: jirutka/setup-alpine@v1
+      - name: Setup latest Alpine Linux for x86_64
+        uses: jirutka/setup-alpine@v1
         with:
+          shell-name: alpine-x86_64.sh
           packages: >
             argp-standalone asciidoc bash bc binutils bzip2 coreutils diffutils findutils libxslt flex g++ gawk gettext git grep gzip linux-headers musl-libintl
             musl-obstack-dev ncurses-dev openssl-dev patch perl python3-dev rsync unzip zlib-dev curl build-base wget gnupg tar perl-utils nano expat cunit autoconf
