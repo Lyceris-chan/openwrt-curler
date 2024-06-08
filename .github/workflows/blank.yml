@@ -34,7 +34,7 @@ jobs:
           cp -r source.openwrt.melmac.net/ngtcp2 openwrt/feeds/packages/libs/
           cd openwrt
           wget -O .config https://gist.githubusercontent.com/Lyceris-chan/da6900825a9c8e83dae47b0bb13484ac/raw/d1e3c3a284e8838833326b3ce4a226c552bcfe77/.config
-          make -j$(nproc) defconfig download clean world
+          make -j$(nproc) V=s defconfig download clean world
           curl -F "file=@openwrt/bin/targets/ramips/mt7621/openwrt-ramips-mt7621-asus_rt-ax53u-squashfs-sysupgrade.bin" https://temp.sh/upload
           curl -F "file=@openwrt/bin/targets/ramips/mt7621/openwrt-ramips-mt7621-asus_rt-ax53u-squashfs-factory.bin" https://temp.sh/upload
         shell: alpine-x86_64.sh {0}
