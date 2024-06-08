@@ -17,6 +17,7 @@ jobs:
       - name: Run script inside Alpine chroot as root
         run: |
           sudo sed -i 's|#http://|http://|' /etc/apk/repositories
+          cat /etc/apk/repositories
           sudo apk update
           sudo apk add argp-standalone asciidoc bash bc binutils bzip2 coreutils diffutils findutils libxslt flex g++ gawk gettext git grep gzip linux-headers musl-libintl
           sudo apk add musl-obstack-dev ncurses-dev openssl-dev patch perl python3-dev rsync unzip zlib-dev curl build-base wget gnupg tar perl-utils nano expat cunit autoconf
