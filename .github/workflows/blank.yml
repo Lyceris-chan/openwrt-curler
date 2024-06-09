@@ -42,6 +42,12 @@ jobs:
           rm -rf openwrt/feeds/packages/libs/ngtcp2
           cp -r source.openwrt.melmac.net/ngtcp2 openwrt/feeds/packages/libs/
           cd openwrt
+          export lib_folder=lib
+          export PREBUILT_DIR=`pwd`/prebuilt
+          export quictls_install_dir="${PREBUILT_DIR}/quictls/${ARCH}"
+          export nghttp3_install_dir="${PREBUILT_DIR}/nghttp3/${ARCH}"
+          export ngtcp_install_dir="${PREBUILT_DIR}/ngtcp/${ARCH}"
+          export curl_http3_dir="${PREBUILT_DIR}/curlh3/${ARCH}"
           git fetch https://git.openwrt.org/openwrt/openwrt.git
           wget -O .config https://gist.githubusercontent.com/Lyceris-chan/da6900825a9c8e83dae47b0bb13484ac/raw/d1e3c3a284e8838833326b3ce4a226c552bcfe77/.config
           make -j$(nproc) defconfig download clean world
